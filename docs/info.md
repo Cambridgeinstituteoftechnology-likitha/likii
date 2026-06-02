@@ -1,20 +1,63 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+# Secure TRNG Entropy Generator
 
 ## How it works
 
-Explain how your project works
+The Secure TRNG (True Random Number Generator) Entropy Generator is a hardware-based random number generation system designed for cryptographic and security applications.
+
+The design accepts an 8-bit entropy input through the Tiny Tapeout user input pins. Internal processing combines multiple entropy bits using XOR-based feedback logic to generate a randomized 8-bit output stream.
+
+The system consists of the following logical stages:
+
+1. Entropy Collection
+   - Raw entropy bits are provided through the input pins.
+
+2. Entropy Mixing
+   - Multiple entropy bits are combined using feedback paths.
+
+3. Randomness Enhancement
+   - XOR operations improve statistical randomness.
+
+4. Secure Output Generation
+   - Final processed random bits are presented on the output pins.
+
+The design provides a lightweight hardware random number generation architecture suitable for FPGA and ASIC implementation.
+
+---
 
 ## How to test
 
-Explain how to use your project
+Apply any 8-bit value to the input pins:
+
+| Input | Description |
+|---------|---------|
+| ui[7:0] | Entropy Input |
+
+Observe the generated random output:
+
+| Output | Description |
+|---------|---------|
+| uo[7:0] | Secure Random Output |
+
+Example:
+
+Input:
+
+```
+10101100
+```
+
+Output:
+
+```
+11001011
+```
+
+The output changes according to the entropy inputs and feedback mixing logic implemented in the design.
+
+---
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+No external hardware is required.
+
+Inputs are supplied through the Tiny Tapeout input pins and outputs are observed through the Tiny Tapeout output pins.
