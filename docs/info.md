@@ -1,4 +1,4 @@
-# Secure TRNG Entropy Generator
+# Secure TRNG Entropy Generator 
 
 ## How it works
 
